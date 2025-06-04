@@ -91,12 +91,15 @@ h4, h5, h6 {
   scroll-margin: calc(var(--nav-height) + 1em);
 }
 
-h1 {
-  font-weight: 400;
-  margin-top: 27px;
-  margin-bottom: 13.5px;
-  font-size: var(--heading-font-size-xxl);
+
+h1::after, h2::after, h3::after, h4::after, h5::after, h6::after  {
+    border-bottom: 2px solid var(--brandPrimary, #ffea00);
+    content: "";
+    display: block;
+    padding-top: 8px;
+    width: 84px;
 }
+
 
 body.activity h1::after {
   display: block;

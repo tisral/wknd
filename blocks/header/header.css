@@ -63,7 +63,6 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::before {
   top: 8px;
   width: 20px;
   height: 2px;
-  border-radius: 3px;
   background: currentcolor;
 }
 
@@ -85,7 +84,6 @@ header nav[aria-expanded='true'] .nav-hamburger-icon {
   width: 22px;
   height: 22px;
   border: 2px solid transparent;
-  border-radius: 5px;
   transform: translate(-3px, -2px);
 }
 
@@ -99,7 +97,6 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::before {
   height: 2px;
   background: currentcolor;
   transform: rotate(45deg);
-  border-radius: 5px;
   top: 8px;
   left: 1px
 }
@@ -127,6 +124,30 @@ header nav .nav-sections ul  {
 header nav .nav-sections li {
   font-size: 20px;
   font-weight: 500;
+}
+
+/* Base padding for all nav items - Mobile */
+header nav .nav-sections > ul > li {
+  padding: 16px 24px; /* Consistent padding for all items */
+}
+
+/* Hover and Active/Selected nav item styling - Mobile */
+header nav .nav-sections > ul > li:hover,
+header nav .nav-sections > ul > li.active,
+header nav .nav-sections > ul > li[aria-current="page"] {
+  background-color: #ffea00; /* Yellow background - adjust color as needed */
+  color: #333; /* Dark text for better contrast */
+}
+
+header nav .nav-sections > ul > li:hover a,
+header nav .nav-sections > ul > li.active a,
+header nav .nav-sections > ul > li[aria-current="page"] a {
+  color: #333; /* Ensure link text is dark on yellow background */
+  text-decoration: none; /* Remove underline */
+}
+
+header nav .nav-sections a {
+  text-decoration: none; /* Remove underlines from all nav links */
 }
 
 header nav[aria-expanded='true'] .nav-sections {
@@ -211,16 +232,30 @@ header nav[aria-expanded='true'] .nav-tools li {
   }
 
   header nav .nav-sections > ul > li {
-    padding: 0 16px;
+    padding: 12px 24px; /* Base padding for all items - prevents bouncing */
     position: relative;
     font-size: 16px;
     margin: 0;
     cursor: pointer;
-    padding-top: 0;
   }
 
   header nav .nav-sections > ul > li > p {
     margin: 0;
+  }
+
+  /* Desktop hover and active state styling - No additional padding to prevent bouncing */
+  header nav .nav-sections > ul > li:hover,
+  header nav .nav-sections > ul > li.active,
+  header nav .nav-sections > ul > li[aria-current="page"] {
+    background-color: #ffea00; /* Yellow background */
+    color: #333;
+  }
+
+  header nav .nav-sections > ul > li:hover a,
+  header nav .nav-sections > ul > li.active a,
+  header nav .nav-sections > ul > li[aria-current="page"] a {
+    color: #333; /* Ensure link text is dark on yellow background */
+    text-decoration: none; /* Remove underline */
   }
 
   header nav .nav-sections > ul > li > ul {
@@ -245,7 +280,6 @@ header nav[aria-expanded='true'] .nav-tools li {
     left: 20px;
   }
 
-
   header nav .nav-sections > ul > li > ul > li {
     font-size: 18px;
     padding: 8px 16px;
@@ -267,7 +301,8 @@ header .header-topbar {
   background-color: black;
   color: var(--text-color-light);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* Changed from space-between to flex-end */
+  gap: 16px; /* Add gap between items instead of space-between */
   font-size: var(--body-font-size-xs);
   text-transform: uppercase;
   padding: 0 16px;
@@ -290,7 +325,6 @@ header .header-chevron-down {
     width: 22px;
     height: 22px;
     border: 2px solid transparent;
-    border-radius: 100px
 }
 header .header-chevron-down::after {
     content: "";

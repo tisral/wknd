@@ -3,23 +3,75 @@
     flex-direction: column;
 }
 
+/* Make image fill container height */
+.columns > div > div:first-child {
+    flex: 2;
+    display: flex;
+}
+
 .columns img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.columns h3 {
+    font-size: 1.2rem !important;
+    font-weight: bolder !important;
+}
+
+/* Remove ::after effects on headings */
+.columns h1::after,
+.columns h2::after,
+.columns h3::after,
+.columns h4::after,
+.columns h5::after,
+.columns h6::after {
+    border-bottom: none !important;
+    content: none !important;
+    display: none !important;
+    padding-top: 0 !important;
+    width: auto !important;
+}
+
+/* Tighten paragraph spacing and ensure left alignment */
+p {
+    line-height: 1.75 !important;
+    font-size: 14px !important;
+    margin-top: 0.3em !important;
+    margin-bottom: 0.3em !important;
+}
+
+/* Content column styling */
+.columns > div > div:nth-child(2) {
+    background-color: #ebebeb;
+    padding: 3.5em 2em 2em;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-start; /* ← ensure children align left */
 }
 
 @media (min-width: 900px) {
     .columns > div {
         display: flex;
-        align-items: center;
-        flex-direction: unset;
+        align-items: stretch;
+        flex-direction: row;
     }
 
-    .columns > div > div {
+    .columns > div > div:first-child {
+        flex: 2;
+        display: flex;
+    }
+
+    .columns > div > div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
         flex: 1;
-        margin-left: 32px;
-    }
-
-    .columns > div > div:first-of-type {
-        margin-left: unset;
+        background-color: #ebebeb;
+        padding: 3.5em 2em 2em;
+        justify-content: center;
+        align-items: flex-start; /* ← important here too */
     }
 }
